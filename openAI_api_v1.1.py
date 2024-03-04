@@ -11,7 +11,6 @@ import argparse
 # get api informations
 
 # reading auth dictionary
-#auth = json.load(open("./param/authentication.json","r"))
 auth = json.load(open("./param/auth.json","r")) # will use g4 credentials
 
 
