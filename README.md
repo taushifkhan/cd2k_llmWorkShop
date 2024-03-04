@@ -1,7 +1,7 @@
 # cd2k_llmWorkShop
 
 Use of LLM for gene prioritization for gene modules involve in interferon.
-As a part of workshop, we use 6 modules annotated as INF from bloodGen v3.
+As a part of workshop, we use 6 modules annotated as IFN from bloodGen v3.
 
 In total, 114 genes were scored for statements related IFN (see ./param/) using GPT4-turbo and GPT4 models.
 We use Azure API implemented by JaX-IT.
