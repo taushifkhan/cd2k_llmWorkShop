@@ -9,17 +9,6 @@ from tqdm import tqdm
 import argparse
 
 # get api informations
-
-# reading auth dictionary
-auth = json.load(open("./param/auth.json","r")) # will use g4 credentials
-
-
-client = AzureOpenAI(
-  api_key = auth['api_key'],  
-  api_version = auth["version"],
-  azure_endpoint = auth['api_base']  # Your Azure OpenAI resource's endpoint value.
-)
-
 # reading parameters input
 argParse = argparse.ArgumentParser()
 argParse.add_argument("-p", "--param", help="file path to parameter file in JSON format")
@@ -32,6 +21,16 @@ print("args=%s" % args)
 print("args.param=%s" % args.param)
 print("args.genelist=%s" % args.genelist)
 print("args.out=%s" % args.out)
+
+# reading auth dictionary
+auth = json.load(open("./param/auth.json","r")) # will use g4 credentials
+
+
+client = AzureOpenAI(
+  api_key = auth['api_key'],  
+  api_version = auth["version"],
+  azure_endpoint = auth['api_base']  # Your Azure OpenAI resource's endpoint value.
+)
 
 ## process input argumants
 param_dict = json.load(open(args.param,"r"))

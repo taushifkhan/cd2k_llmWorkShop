@@ -1,0 +1,7 @@
+{"background": ["gene name", " brief summary"], 
+"scoring_strategy": "provide score 0 to 10 on following statements with 0 being low evidence and 10 being high evidence",
+ "question": ["This gene is specifically associated with the biology of TNBC tumors",
+  "This gene is specifically associated with the proliferation of TNBC tumor cells", 
+  "This gene is specifically associated with the metastasis or invasiveness of TNBC tumors",
+  "This gene is specifically associated with the microenvironment surrounding TNBC tumors"], 
+ "model_setting": {"temperature": 0.7, "q_iter": 1}}

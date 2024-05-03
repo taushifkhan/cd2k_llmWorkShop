@@ -12,8 +12,22 @@ You might need followings,
 
 1. Environment. Use requirement.txt file to build your the python environment.
 2. Gene List: see the template of gene list in `./data/`
-3. Authentication: Fill-in credentials to use LLM model (get in contact IT)
-4. setup run: can be done locally or can be launched in HPC (sumner- sbatch )
+3. Authentication: Fill-in credentials to use LLM model (see ``./param/auth.json``)
+4. setup run: 
+
+```bash
+code % python openAI_api_v1.1.py --help
+usage: openAI_api_v1.1.py [-h] [-p PARAM] [-g GENELIST] [-o OUT]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -p PARAM, --param PARAM
+                        file path to parameter file in JSON format
+  -g GENELIST, --genelist GENELIST
+                        file path to genelist csv file [col name :Genes]
+  -o OUT, --out OUT     result file name in json [output.json]
+```
+
 5. Output : the out put in a string of Json object. where genes-modelID were keys and statements are strings. One might use pattern recognition to extract scores. 
 
 
@@ -21,7 +35,7 @@ OR,
 # Use docker implementation of this code:
 
 `
-docker run -p 8501:8501 takh/llmgene_workshop:feb15
+docker run -p 8501:8501 takh/llmgene_workshop:latest
 `
 
 You will see the app in the browser : http://0.0.0.0:8501 
