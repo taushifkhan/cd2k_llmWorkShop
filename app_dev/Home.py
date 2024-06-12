@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import sys
-sys.path.append("./codeBase")
+sys.path.append("app_dev/codeBase")
 import privateAPIcall as pA
 import azureAPIcall as aZ
 
