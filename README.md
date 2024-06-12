@@ -32,10 +32,23 @@ optional arguments:
 
 
 OR,
-# Use docker implementation of this code:
 
-`
-docker run -p 8501:8501 takh/llmgene_workshop:latest
-`
+#### 1. Install Docker
+
+Ensure Docker is installed on your system. Download it from the 
+[Docker website](https://www.docker.com/products/docker-desktop) and follow the installation instructions for your operating system.
+
+#### 2. Pull a Docker Image
+
+Before running a container, you need to have a Docker image. Pull the image from Docker Hub with the following command:
+
+```bash
+docker pull takh/llmgene_workshop:latest # to get the container
+docker run -p 8501:8501 takh/llmgene_workshop:latest # run locally application is on localhost:8501
+            
+docker stop [container-id or name] # stop application
+docker start [container-id or name] # start
+docker rm [container-id or name]    # remove the container    
+```
 
 You will see the app in the browser : http://0.0.0.0:8501 

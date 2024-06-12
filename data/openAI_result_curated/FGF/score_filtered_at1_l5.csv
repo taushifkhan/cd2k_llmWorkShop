@@ -1,0 +1,198 @@
+geneName,a_associated_FGF,b_regulates_FGF,c_Interacts_FGF,totalScore,ModuleID,AggregateNumber,ModuleTitle
+FGF18,9.0,7.0,8.0,24.0,M16.97,A17,Cell death
+IQGAP1,5.0,4.0,3.0,12.0,M13.1,A35,Inflammation
+TXN,5.0,3.0,2.0,10.0,M13.1,A35,Inflammation
+PPP2R4,5.0,3.0,4.0,12.0,M15.6,A7,Cell cycle
+ECT2,5.0,4.0,3.0,12.0,M15.40,A6,Gene transcription
+PPP2CA,5.0,3.0,2.0,10.0,M13.11,A26,TBD
+FYN,6.0,4.0,5.0,15.0,M13.2,A1,Gene transcription
+PRUNE,5.0,4.0,3.0,12.0,M14.39,A34,Cell cycle
+CDC2L6,5.0,5.0,5.0,15.0,M13.5,A32,Cell death
+CAPN2,5.0,3.0,2.0,10.0,M15.80,A6,TBD
+PLAG1,5.0,4.0,3.0,12.0,M16.10,A3,TBD
+PDK1,5.0,4.0,3.0,12.0,M16.86,A29,Oxidative stress
+CD164,5.0,4.0,3.0,12.0,M14.79,A2,Protein synthesis
+TCF4,5.0,4.0,3.0,12.0,M16.45,A3,TBD
+SPRY1,9.0,7.0,8.0,24.0,M16.11,A4,Protein synthesis
+PAK2,5.0,3.0,4.0,12.0,M14.22,A32,TBD
+RASA1,5.0,3.0,4.0,12.0,M13.23,A3,TBD
+DULLARD,7.0,5.0,4.0,16.0,M15.6,A7,Cell cycle
+NDRG3,5.0,4.0,3.0,12.0,M15.2,A6,TBD
+CALM3,5.0,3.0,4.0,12.0,M15.57,A26,TBD
+MST4,5.0,3.0,4.0,12.0,M12.5,A3,Protein modification
+NEDD9,5.0,4.0,3.0,12.0,M14.66,A33,Inflammation
+TNS3,7.0,6.0,5.0,18.0,M14.1,A32,Gene transcription
+MAP2K4,5.0,3.0,2.0,10.0,M14.76,A33,Leukocyte activation
+PIK3R2,7.0,5.0,4.0,16.0,M12.9,A38,Protein phosphorylation
+PTP4A2,6.0,4.0,5.0,15.0,M3.1,A29,Cell cycle
+ITGB5,5.0,4.0,3.0,12.0,M8.2,A34,Prostanoids
+BMX,6.0,4.0,5.0,15.0,M15.113,A35,Inflammation
+ADAM10,5.0,3.0,4.0,12.0,M16.1,A33,TBD
+TUBB2A,5.0,4.0,3.0,12.0,M9.2,A37,Erythrocytes
+MAP3K1,7.0,5.0,4.0,16.0,M15.10,A6,Gene transcription
+LRP1,5.0,3.0,4.0,12.0,M16.85,A32,TBD
+HRAS,7.0,5.0,4.0,16.0,M15.8,A2,Gene transcription
+UBR5,5.0,4.0,3.0,12.0,M14.36,A32,TBD
+TIMP2,6.0,4.0,3.0,13.0,M12.10,A35,Inflammation
+PTPN11,7.0,5.0,6.0,18.0,M14.3,A2,Protein modification
+FOS,7.0,8.0,5.0,20.0,M16.100,A33,TBD
+PDPK1,6.0,4.0,5.0,15.0,M13.19,A30,Protein phosphorylation
+RHOA,6.0,4.0,5.0,15.0,M15.5,A5,Protein modification
+CREB1,6.5,5.0,4.0,15.5,M8.1,A29,TBD
+MMP23B,5.0,4.0,3.0,12.0,M13.21,A2,Cytotoxic lymphocytes
+MAPK6,5.0,3.0,4.0,12.0,M15.36,A26,Protein modification
+RUNX2,7.0,5.0,4.0,16.0,M15.14,A33,TBD
+GRB2,8.0,5.0,9.0,22.0,M13.19,A30,Protein phosphorylation
+MEF2C,5.0,4.0,3.0,12.0,M14.12,A1,Cell cycle
+YWHAH,5.0,3.0,4.0,12.0,M13.25,A32,Protein phosphorylation
+DDEF1,5.0,3.0,2.0,10.0,M13.3,A35,TBD
+ITGA3,5.0,3.0,4.0,12.0,M15.125,A12,TBD
+WBP2,5.0,3.0,4.0,12.0,M11.2,A37,TBD
+SGK3,5.0,4.0,3.0,12.0,M13.19,A30,Protein phosphorylation
+CBL,6.0,4.0,7.0,17.0,M13.7,A33,TBD
+DIXDC1,5.0,4.0,3.0,12.0,M16.48,A21,TBD
+CLTC,4.0,3.0,5.0,12.0,M16.8,A6,TBD
+PIK3C2B,5.0,4.0,3.0,12.0,M16.3,A6,T cells
+JARID1A,5.0,3.0,2.0,10.0,M13.5,A32,Cell death
+MCRS1,4.0,2.0,5.0,11.0,M14.55,A6,Gene transcription
+ITGB1BP1,5.0,4.0,3.0,12.0,M14.2,A2,Protein synthesis
+ITSN1,7.0,5.0,6.0,18.0,M16.2,A32,Protein synthesis
+PIK3CA,7.0,5.0,6.0,18.0,M15.42,A6,Gene transcription
+ITGAV,5.0,3.0,2.0,10.0,M15.45,A6,Platelet
+NCK2,5.0,3.0,4.0,12.0,M14.18,A32,TBD
+MAP2K2,7.0,5.0,4.0,16.0,M12.9,A38,Protein phosphorylation
+VASH1,7.0,5.0,4.0,16.0,M16.1,A33,TBD
+CDK2,5.0,4.0,3.0,12.0,M15.6,A7,Cell cycle
+SP3,5.0,4.0,3.0,12.0,M13.7,A33,TBD
+AKT1,7.0,6.0,5.0,18.0,M14.18,A32,TBD
+MMP9,6.0,5.0,4.0,15.0,M13.12,A35,Inflammation
+PRKX,5.0,4.0,3.0,12.0,M14.17,A2,Gene transcription
+YWHAZ,6.0,5.0,4.0,15.0,M13.5,A32,Cell death
+SGK,5.0,4.0,3.0,12.0,M15.10,A6,Gene transcription
+MAPK1,8.0,7.0,6.0,21.0,M13.1,A35,Inflammation
+CDC42,7.0,5.0,4.0,16.0,M16.1,A33,TBD
+DUSP1,6.0,5.0,3.0,14.0,M13.22,A35,Neutrophils
+CAMK1,5.0,4.0,3.0,12.0,M16.14,A6,TBD
+LAMC1,5.0,4.0,3.0,12.0,M16.46,A26,TBD
+CTTN,5.0,4.0,3.0,12.0,M8.2,A34,Prostanoids
+IRS2,5.0,4.0,3.0,12.0,M13.3,A35,TBD
+PRKCA,6.0,4.0,3.0,13.0,M14.4,A1,Gene transcription
+TCF3,6.0,4.0,3.0,13.0,M16.7,A2,TBD
+HS2ST1,7.0,4.0,6.0,17.0,M16.84,A5,Protein phosphorylation
+STAT3,7.0,6.0,5.0,18.0,M13.1,A35,Inflammation
+FGFBP2,7.0,5.0,8.0,20.0,M9.1,A2,Cytotoxic lymphocytes
+SULF2,7.0,4.0,5.0,16.0,M15.13,A33,TBD
+ITGA5,5.0,3.0,4.0,12.0,M14.56,A32,TBD
+TFAP2A,5.0,4.0,3.0,12.0,M13.20,A29,Cell cycle
+TNK2,7.0,5.0,6.0,18.0,M14.22,A32,TBD
+PXN,5.0,4.0,3.0,12.0,M16.79,A35,Protein synthesis
+LRIG2,4.0,3.0,5.0,12.0,M15.8,A2,Gene transcription
+HPSE,6.0,3.0,4.0,13.0,M13.12,A35,Inflammation
+CCNA1,5.0,4.0,3.0,12.0,M16.76,A33,TBD
+LIMK2,5.0,3.0,2.0,10.0,M13.12,A35,Inflammation
+DACH1,7.0,5.0,4.0,16.0,M15.14,A33,TBD
+YWHAB,5.0,3.0,4.0,12.0,M15.9,A6,T cells
+WASF3,5.0,3.0,2.0,10.0,M16.64,A31,Platelet/Prostaglandin
+GALNAC4S-6ST,5.0,3.0,4.0,12.0,M12.10,A35,Inflammation
+AMOT,7.0,5.0,6.0,18.0,M16.99,A5,Protein modification
+CTNNB1,5.0,4.0,3.0,12.0,M15.55,A25,Protein phosphorylation
+GINS2,3.0,5.0,2.0,10.0,M16.92,A27,Cell cycle
+RAP1B,5.0,4.0,3.0,12.0,M14.11,A32,TBD
+NDST1,7.0,5.0,6.0,18.0,M16.102,A33,TBD
+MAP3K4,6.0,3.0,2.0,11.0,M12.3,A1,Cell cycle
+HSP90AA1,6.0,4.0,5.0,15.0,M14.14,A6,Protein modification
+FGFRL1,7.0,5.0,6.0,18.0,M16.50,A4,Protein modification
+CEBPB,4.0,5.0,3.0,12.0,M16.79,A35,Protein synthesis
+FOXO1,7.0,5.0,4.0,16.0,M13.2,A1,Gene transcription
+ECGF1,5.0,3.0,4.0,12.0,M14.7,A35,TBD
+MAPK3,9.0,8.0,7.0,24.0,M13.1,A35,Inflammation
+RALA,5.0,4.0,3.0,12.0,M14.13,A2,Oxidative phosphorylation
+IER2,5.0,6.0,4.0,15.0,M15.14,A33,TBD
+SRF,7.0,6.0,5.0,18.0,M15.39,A8,TBD
+USP16,5.0,4.0,3.0,12.0,M12.5,A3,Protein modification
+SP1,6.0,5.0,4.0,15.0,M16.51,A33,Protein synthesis
+IL17RD,8.0,7.0,9.0,24.0,M3.1,A29,Cell cycle
+MCM7,5.0,3.0,2.0,10.0,M12.4,A2,Gene transcription
+SHC1,8.0,6.0,7.0,21.0,M15.103,A24,TBD
+PPP3CA,5.0,3.0,2.0,10.0,M16.1,A33,TBD
+MITF,5.0,4.0,3.0,12.0,M15.111,A33,TBD
+PTK2,7.0,5.0,6.0,18.0,M14.29,A32,TBD
+LRIG1,4.0,3.0,5.0,12.0,M14.64,A1,Cell cycle
+RPS6KB1,6.0,5.0,4.0,15.0,M12.5,A3,Protein modification
+PLCB2,5.0,4.0,3.0,12.0,M15.13,A33,TBD
+CRIP1,5.0,4.0,3.0,12.0,M16.68,A2,Protein synthesis
+EXT2,7.0,4.0,6.0,17.0,M16.2,A32,Protein synthesis
+CITED2,5.0,4.0,3.0,12.0,M15.5,A5,Protein modification
+IER3,5.0,4.0,3.0,12.0,M13.3,A35,TBD
+MAPK14,7.0,5.0,4.0,16.0,M15.84,A35,Cytokines/chemokines
+WWP2,5.0,3.0,2.0,10.0,M15.39,A8,TBD
+TPST2,5.0,3.0,2.0,10.0,M13.1,A35,Inflammation
+NP,5.0,4.0,6.0,15.0,M13.26,A37,Oxidative stress
+PTPRA,4.0,3.0,5.0,12.0,M14.15,A6,Protein modification
+PRDX1,5.0,4.0,3.0,12.0,M13.14,A2,Proteolysis
+CLIC4,5.0,4.0,3.0,12.0,M14.21,A26,TBD
+PRKCZ,5.0,3.0,4.0,12.0,M14.1,A32,Gene transcription
+ARPC2,5.0,4.0,3.0,12.0,M15.17,A22,TBD
+PIK3CB,7.0,5.0,4.0,16.0,M15.55,A25,Protein phosphorylation
+MAP1B,6.0,4.0,3.0,13.0,M16.94,A19,TBD
+VIL2,5.0,4.0,3.0,12.0,M12.4,A2,Gene transcription
+MAP2K1,7.0,6.0,5.0,18.0,M16.83,A7,Cell adhesion
+NCK1,7.0,6.0,8.0,21.0,M14.2,A2,Protein synthesis
+EGR1,7.0,8.0,5.0,20.0,M15.61,A7,Monocytes
+PTPN1,5.0,3.0,4.0,12.0,M14.10,A26,TBD
+ITGB1,7.0,5.0,6.0,18.0,M13.25,A32,Protein phosphorylation
+EXTL3,6.0,4.0,5.0,15.0,M14.38,A31,TBD
+HSP90AB1,4.0,3.0,5.0,12.0,M15.34,A6,T cells
+NELL2,5.0,4.0,3.0,12.0,M12.6,A1,T cells
+NFATC3,5.0,4.0,3.0,12.0,M13.29,A2,Protein modification
+GPC6,7.0,5.0,6.0,18.0,M16.9,A32,Protein modification
+PKN1,6.0,4.0,3.0,13.0,M15.47,A32,Antigen presentation
+CRKL,7.0,5.0,6.0,18.0,M13.5,A32,Cell death
+MAPK9,5.0,4.0,3.0,12.0,M15.19,A6,Gene transcription
+SOS1,7.0,5.0,6.0,18.0,M16.69,A4,Lipid metabolism
+MYB,5.0,4.0,3.0,12.0,M15.3,A2,Gene transcription
+EP300,5.0,4.0,3.0,12.0,M13.19,A30,Protein phosphorylation
+ETS2,7.0,5.0,4.0,16.0,M13.3,A35,TBD
+PLD1,6.0,4.0,3.0,13.0,M16.102,A33,TBD
+TNS1,5.0,4.0,3.0,12.0,M9.2,A37,Erythrocytes
+MED30,5.0,4.0,3.0,12.0,M14.72,A2,TBD
+METAP2,5.0,3.0,2.0,10.0,M16.81,A6,TBD
+MAP3K2,6.0,4.0,3.0,13.0,M13.3,A35,TBD
+YWHAG,5.0,3.0,4.0,12.0,M13.14,A2,Proteolysis
+TSC22D4,5.0,4.0,3.0,12.0,M13.15,A32,Gene transcription
+STK36,5.0,3.0,2.0,10.0,M15.1,A6,TBD
+TFE3,5.0,3.0,4.0,12.0,M14.7,A35,TBD
+TIMP1,5.0,3.0,2.0,10.0,M13.1,A35,Inflammation
+PTK2B,6.0,4.0,5.0,15.0,M13.15,A32,Gene transcription
+CRK,7.0,5.0,6.0,18.0,M13.7,A33,TBD
+RHOC,5.0,3.0,2.0,10.0,M14.10,A26,TBD
+FRS3,8.0,6.0,7.0,21.0,M16.2,A32,Protein synthesis
+WDFY1,5.0,4.0,3.0,12.0,M14.14,A6,Protein modification
+RAPGEF6,5.0,2.0,1.0,8.0,M14.61,A2,Protein modification
+SLC3A2,5.0,4.0,3.0,12.0,M16.1,A33,TBD
+ID2,4.0,5.0,3.0,12.0,M13.2,A1,Gene transcription
+USP8,6.0,3.0,2.0,11.0,M14.29,A32,TBD
+NOV,6.0,4.0,5.0,15.0,M16.11,A4,Protein synthesis
+P117,6.0,4.0,7.0,17.0,M13.6,A1,Gene transcription
+MAP3K3,5.0,4.0,3.0,12.0,M15.105,A35,Inflammation
+RPS6KA1,6.0,4.0,5.0,15.0,M13.1,A35,Inflammation
+PRKCI,5.0,4.0,3.0,12.0,M16.13,A5,Protein modification
+FOSL2,5.0,6.0,4.0,15.0,M15.111,A33,TBD
+ILK,6.0,5.0,4.0,15.0,M15.12,A33,TBD
+MYC,5.0,4.0,3.0,12.0,M13.2,A1,Gene transcription
+PIK3R1,7.0,5.0,6.0,18.0,M15.83,A6,Gene transcription
+CCND2,7.0,6.0,5.0,18.0,M13.2,A1,Gene transcription
+GOLPH3,5.0,3.0,2.0,10.0,M16.9,A32,Protein modification
+IQGAP2,5.0,3.0,2.0,10.0,M14.1,A32,Gene transcription
+CSNK2A1,5.0,4.0,3.0,12.0,M15.5,A5,Protein modification
+NCOA6,6.0,3.0,2.0,11.0,M13.5,A32,Cell death
+STRN3,5.0,4.0,3.0,12.0,M15.9,A6,T cells
+PUF60,5.0,3.0,4.0,12.0,M12.4,A2,Gene transcription
+SPARC,6.0,5.0,4.0,15.0,M14.59,A34,TBD
+IER5,3.0,5.0,2.0,10.0,M14.1,A32,Gene transcription
+SPRY2,9.0,7.0,8.0,24.0,M16.57,A5,B cells
+PAK1,7.0,5.0,4.0,16.0,M15.13,A33,TBD
+DUSP5,5.0,3.0,2.0,10.0,M16.3,A6,T cells
+2-Sep,5.0,6.0,4.0,15.0,M13.5,A32,Cell death
+GAB2,7.0,5.0,6.0,18.0,M14.19,A33,Inflammation
+JUN,7.0,8.0,5.0,20.0,M15.40,A6,Gene transcription

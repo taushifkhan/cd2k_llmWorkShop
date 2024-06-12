@@ -1,0 +1,198 @@
+geneName,a_associated_FGF,b_regulates_FGF,c_Interacts_FGF,totalScore,ModuleID,AggregateNumber,ModuleTitle,c_num,c_color,ClusterName
+FRS3,8,6,7,21,M16.2,A32,Protein synthesis,3,#2ca02c,1
+NCK1,7,6,8,21,M14.2,A2,Protein synthesis,3,#2ca02c,1
+SPRY2,9,7,8,24,M16.57,A5,B cells,3,#2ca02c,1
+FGF18,9,7,8,24,M16.97,A17,Cell death,3,#2ca02c,1
+FGFBP2,7,5,8,20,M9.1,A2,Cytotoxic lymphocytes,3,#2ca02c,1
+SHC1,8,6,7,21,M15.103,A24,TBD,3,#2ca02c,1
+IL17RD,8,7,9,24,M3.1,A29,Cell cycle,3,#2ca02c,1
+GRB2,8,5,9,22,M13.19,A30,Protein phosphorylation,3,#2ca02c,1
+SPRY1,9,7,8,24,M16.11,A4,Protein synthesis,3,#2ca02c,1
+MAPK1,8,7,6,21,M13.1,A35,Inflammation,3,#2ca02c,1
+MAPK3,9,8,7,24,M13.1,A35,Inflammation,3,#2ca02c,1
+NP,5,4,6,15,M13.26,A37,Oxidative stress,4,#ff7f0e,2
+SULF2,7,4,5,16,M15.13,A33,TBD,4,#ff7f0e,2
+BMX,6,4,5,15,M15.113,A35,Inflammation,4,#ff7f0e,2
+HS2ST1,7,4,6,17,M16.84,A5,Protein phosphorylation,4,#ff7f0e,2
+PIK3R1,7,5,6,18,M15.83,A6,Gene transcription,4,#ff7f0e,2
+PTPN11,7,5,6,18,M14.3,A2,Protein modification,4,#ff7f0e,2
+PIK3CA,7,5,6,18,M15.42,A6,Gene transcription,4,#ff7f0e,2
+CRK,7,5,6,18,M13.7,A33,TBD,4,#ff7f0e,2
+PTP4A2,6,4,5,15,M3.1,A29,Cell cycle,4,#ff7f0e,2
+ITSN1,7,5,6,18,M16.2,A32,Protein synthesis,4,#ff7f0e,2
+CBL,6,4,7,17,M13.7,A33,TBD,4,#ff7f0e,2
+PDPK1,6,4,5,15,M13.19,A30,Protein phosphorylation,4,#ff7f0e,2
+NOV,6,4,5,15,M16.11,A4,Protein synthesis,4,#ff7f0e,2
+P117,6,4,7,17,M13.6,A1,Gene transcription,4,#ff7f0e,2
+PTK2B,6,4,5,15,M13.15,A32,Gene transcription,4,#ff7f0e,2
+RHOA,6,4,5,15,M15.5,A5,Protein modification,4,#ff7f0e,2
+TNK2,7,5,6,18,M14.22,A32,TBD,4,#ff7f0e,2
+SOS1,7,5,6,18,M16.69,A4,Lipid metabolism,4,#ff7f0e,2
+EXT2,7,4,6,17,M16.2,A32,Protein synthesis,4,#ff7f0e,2
+FYN,6,4,5,15,M13.2,A1,Gene transcription,4,#ff7f0e,2
+PTK2,7,5,6,18,M14.29,A32,TBD,4,#ff7f0e,2
+CDC2L6,5,5,5,15,M13.5,A32,Cell death,4,#ff7f0e,2
+EXTL3,6,4,5,15,M14.38,A31,TBD,4,#ff7f0e,2
+FGFRL1,7,5,6,18,M16.50,A4,Protein modification,4,#ff7f0e,2
+ITGB1,7,5,6,18,M13.25,A32,Protein phosphorylation,4,#ff7f0e,2
+RPS6KA1,6,4,5,15,M13.1,A35,Inflammation,4,#ff7f0e,2
+AMOT,7,5,6,18,M16.99,A5,Protein modification,4,#ff7f0e,2
+CRKL,7,5,6,18,M13.5,A32,Cell death,4,#ff7f0e,2
+NDST1,7,5,6,18,M16.102,A33,TBD,4,#ff7f0e,2
+GAB2,7,5,6,18,M14.19,A33,Inflammation,4,#ff7f0e,2
+GPC6,7,5,6,18,M16.9,A32,Protein modification,4,#ff7f0e,2
+HSP90AA1,6,4,5,15,M14.14,A6,Protein modification,4,#ff7f0e,2
+FOS,7,8,5,20,M16.100,A33,TBD,5,#1f77b4,3
+PAK1,7,5,4,16,M15.13,A33,TBD,5,#1f77b4,3
+HRAS,7,5,4,16,M15.8,A2,Gene transcription,5,#1f77b4,3
+ILK,6,5,4,15,M15.12,A33,TBD,5,#1f77b4,3
+TNS3,7,6,5,18,M14.1,A32,Gene transcription,5,#1f77b4,3
+PIK3R2,7,5,4,16,M12.9,A38,Protein phosphorylation,5,#1f77b4,3
+MAP3K1,7,5,4,16,M15.10,A6,Gene transcription,5,#1f77b4,3
+CCND2,7,6,5,18,M13.2,A1,Gene transcription,5,#1f77b4,3
+SPARC,6,5,4,15,M14.59,A34,TBD,5,#1f77b4,3
+DULLARD,7,5,4,16,M15.6,A7,Cell cycle,5,#1f77b4,3
+AKT1,7,6,5,18,M14.18,A32,TBD,5,#1f77b4,3
+RUNX2,7,5,4,16,M15.14,A33,TBD,5,#1f77b4,3
+RPS6KB1,6,5,4,15,M12.5,A3,Protein modification,5,#1f77b4,3
+PIK3CB,7,5,4,16,M15.55,A25,Protein phosphorylation,5,#1f77b4,3
+SP1,6,5,4,15,M16.51,A33,Protein synthesis,5,#1f77b4,3
+SRF,7,6,5,18,M15.39,A8,TBD,5,#1f77b4,3
+MAP2K1,7,6,5,18,M16.83,A7,Cell adhesion,5,#1f77b4,3
+EGR1,7,8,5,20,M15.61,A7,Monocytes,5,#1f77b4,3
+FOXO1,7,5,4,16,M13.2,A1,Gene transcription,5,#1f77b4,3
+CREB1,6.5,5,4,15.5,M8.1,A29,TBD,5,#1f77b4,3
+DACH1,7,5,4,16,M15.14,A33,TBD,5,#1f77b4,3
+STAT3,7,6,5,18,M13.1,A35,Inflammation,5,#1f77b4,3
+CDC42,7,5,4,16,M16.1,A33,TBD,5,#1f77b4,3
+YWHAZ,6,5,4,15,M13.5,A32,Cell death,5,#1f77b4,3
+MMP9,6,5,4,15,M13.12,A35,Inflammation,5,#1f77b4,3
+MAPK14,7,5,4,16,M15.84,A35,Cytokines/chemokines,5,#1f77b4,3
+VASH1,7,5,4,16,M16.1,A33,TBD,5,#1f77b4,3
+MAP2K2,7,5,4,16,M12.9,A38,Protein phosphorylation,5,#1f77b4,3
+ETS2,7,5,4,16,M13.3,A35,TBD,5,#1f77b4,3
+JUN,7,8,5,20,M15.40,A6,Gene transcription,5,#1f77b4,3
+YWHAG,5,3,4,12,M13.14,A2,Proteolysis,1,#9467bd,4
+CLTC,4,3,5,12,M16.8,A6,TBD,1,#9467bd,4
+PTPN1,5,3,4,12,M14.10,A26,TBD,1,#9467bd,4
+ECGF1,5,3,4,12,M14.7,A35,TBD,1,#9467bd,4
+ITGA5,5,3,4,12,M14.56,A32,TBD,1,#9467bd,4
+MCRS1,4,2,5,11,M14.55,A6,Gene transcription,1,#9467bd,4
+PUF60,5,3,4,12,M12.4,A2,Gene transcription,1,#9467bd,4
+MAPK6,5,3,4,12,M15.36,A26,Protein modification,1,#9467bd,4
+MST4,5,3,4,12,M12.5,A3,Protein modification,1,#9467bd,4
+CALM3,5,3,4,12,M15.57,A26,TBD,1,#9467bd,4
+LRP1,5,3,4,12,M16.85,A32,TBD,1,#9467bd,4
+RASA1,5,3,4,12,M13.23,A3,TBD,1,#9467bd,4
+PAK2,5,3,4,12,M14.22,A32,TBD,1,#9467bd,4
+ADAM10,5,3,4,12,M16.1,A33,TBD,1,#9467bd,4
+HSP90AB1,4,3,5,12,M15.34,A6,T cells,1,#9467bd,4
+PRKCZ,5,3,4,12,M14.1,A32,Gene transcription,1,#9467bd,4
+LRIG2,4,3,5,12,M15.8,A2,Gene transcription,1,#9467bd,4
+WBP2,5,3,4,12,M11.2,A37,TBD,1,#9467bd,4
+ITGA3,5,3,4,12,M15.125,A12,TBD,1,#9467bd,4
+LRIG1,4,3,5,12,M14.64,A1,Cell cycle,1,#9467bd,4
+HPSE,6,3,4,13,M13.12,A35,Inflammation,1,#9467bd,4
+TFE3,5,3,4,12,M14.7,A35,TBD,1,#9467bd,4
+GALNAC4S-6ST,5,3,4,12,M12.10,A35,Inflammation,1,#9467bd,4
+PTPRA,4,3,5,12,M14.15,A6,Protein modification,1,#9467bd,4
+PPP2R4,5,3,4,12,M15.6,A7,Cell cycle,1,#9467bd,4
+YWHAH,5,3,4,12,M13.25,A32,Protein phosphorylation,1,#9467bd,4
+YWHAB,5,3,4,12,M15.9,A6,T cells,1,#9467bd,4
+NCK2,5,3,4,12,M14.18,A32,TBD,1,#9467bd,4
+EP300,5,4,3,12,M13.19,A30,Protein phosphorylation,2,#d62728,5
+PXN,5,4,3,12,M16.79,A35,Protein synthesis,2,#d62728,5
+PLD1,6,4,3,13,M16.102,A33,TBD,2,#d62728,5
+TNS1,5,4,3,12,M9.2,A37,Erythrocytes,2,#d62728,5
+MED30,5,4,3,12,M14.72,A2,TBD,2,#d62728,5
+METAP2,5,3,2,10,M16.81,A6,TBD,2,#d62728,5
+TCF3,6,4,3,13,M16.7,A2,TBD,2,#d62728,5
+PRKCA,6,4,3,13,M14.4,A1,Gene transcription,2,#d62728,5
+IRS2,5,4,3,12,M13.3,A35,TBD,2,#d62728,5
+CTTN,5,4,3,12,M8.2,A34,Prostanoids,2,#d62728,5
+LAMC1,5,4,3,12,M16.46,A26,TBD,2,#d62728,5
+CAMK1,5,4,3,12,M16.14,A6,TBD,2,#d62728,5
+DUSP1,6,5,3,14,M13.22,A35,Neutrophils,2,#d62728,5
+TFAP2A,5,4,3,12,M13.20,A29,Cell cycle,2,#d62728,5
+CCNA1,5,4,3,12,M16.76,A33,TBD,2,#d62728,5
+RAP1B,5,4,3,12,M14.11,A32,TBD,2,#d62728,5
+MYB,5,4,3,12,M15.3,A2,Gene transcription,2,#d62728,5
+IER3,5,4,3,12,M13.3,A35,TBD,2,#d62728,5
+CITED2,5,4,3,12,M15.5,A5,Protein modification,2,#d62728,5
+CRIP1,5,4,3,12,M16.68,A2,Protein synthesis,2,#d62728,5
+PLCB2,5,4,3,12,M15.13,A33,TBD,2,#d62728,5
+PRDX1,5,4,3,12,M13.14,A2,Proteolysis,2,#d62728,5
+CLIC4,5,4,3,12,M14.21,A26,TBD,2,#d62728,5
+MITF,5,4,3,12,M15.111,A33,TBD,2,#d62728,5
+PPP3CA,5,3,2,10,M16.1,A33,TBD,2,#d62728,5
+MCM7,5,3,2,10,M12.4,A2,Gene transcription,2,#d62728,5
+ARPC2,5,4,3,12,M15.17,A22,TBD,2,#d62728,5
+MAP1B,6,4,3,13,M16.94,A19,TBD,2,#d62728,5
+LIMK2,5,3,2,10,M13.12,A35,Inflammation,2,#d62728,5
+USP16,5,4,3,12,M12.5,A3,Protein modification,2,#d62728,5
+IER2,5,6,4,15,M15.14,A33,TBD,2,#d62728,5
+RALA,5,4,3,12,M14.13,A2,Oxidative phosphorylation,2,#d62728,5
+CEBPB,4,5,3,12,M16.79,A35,Protein synthesis,2,#d62728,5
+NELL2,5,4,3,12,M12.6,A1,T cells,2,#d62728,5
+MAP3K4,6,3,2,11,M12.3,A1,Cell cycle,2,#d62728,5
+NFATC3,5,4,3,12,M13.29,A2,Protein modification,2,#d62728,5
+PKN1,6,4,3,13,M15.47,A32,Antigen presentation,2,#d62728,5
+MAP3K2,6,4,3,13,M13.3,A35,TBD,2,#d62728,5
+CTNNB1,5,4,3,12,M15.55,A25,Protein phosphorylation,2,#d62728,5
+MAPK9,5,4,3,12,M15.19,A6,Gene transcription,2,#d62728,5
+WASF3,5,3,2,10,M16.64,A31,Platelet/Prostaglandin,2,#d62728,5
+VIL2,5,4,3,12,M12.4,A2,Gene transcription,2,#d62728,5
+GINS2,3,5,2,10,M16.92,A27,Cell cycle,2,#d62728,5
+CDK2,5,4,3,12,M15.6,A7,Cell cycle,2,#d62728,5
+TSC22D4,5,4,3,12,M13.15,A32,Gene transcription,2,#d62728,5
+GOLPH3,5,3,2,10,M16.9,A32,Protein modification,2,#d62728,5
+IQGAP2,5,3,2,10,M14.1,A32,Gene transcription,2,#d62728,5
+TUBB2A,5,4,3,12,M9.2,A37,Erythrocytes,2,#d62728,5
+CSNK2A1,5,4,3,12,M15.5,A5,Protein modification,2,#d62728,5
+ITGB5,5,4,3,12,M8.2,A34,Prostanoids,2,#d62728,5
+NCOA6,6,3,2,11,M13.5,A32,Cell death,2,#d62728,5
+STRN3,5,4,3,12,M15.9,A6,T cells,2,#d62728,5
+MAP2K4,5,3,2,10,M14.76,A33,Leukocyte activation,2,#d62728,5
+NEDD9,5,4,3,12,M14.66,A33,Inflammation,2,#d62728,5
+NDRG3,5,4,3,12,M15.2,A6,TBD,2,#d62728,5
+IER5,3,5,2,10,M14.1,A32,Gene transcription,2,#d62728,5
+TCF4,5,4,3,12,M16.45,A3,TBD,2,#d62728,5
+CD164,5,4,3,12,M14.79,A2,Protein synthesis,2,#d62728,5
+PDK1,5,4,3,12,M16.86,A29,Oxidative stress,2,#d62728,5
+PLAG1,5,4,3,12,M16.10,A3,TBD,2,#d62728,5
+CAPN2,5,3,2,10,M15.80,A6,TBD,2,#d62728,5
+DUSP5,5,3,2,10,M16.3,A6,T cells,2,#d62728,5
+PRUNE,5,4,3,12,M14.39,A34,Cell cycle,2,#d62728,5
+2-Sep,5,6,4,15,M13.5,A32,Cell death,2,#d62728,5
+PPP2CA,5,3,2,10,M13.11,A26,TBD,2,#d62728,5
+ECT2,5,4,3,12,M15.40,A6,Gene transcription,2,#d62728,5
+TXN,5,3,2,10,M13.1,A35,Inflammation,2,#d62728,5
+IQGAP1,5,4,3,12,M13.1,A35,Inflammation,2,#d62728,5
+SGK,5,4,3,12,M15.10,A6,Gene transcription,2,#d62728,5
+TIMP2,6,4,3,13,M12.10,A35,Inflammation,2,#d62728,5
+UBR5,5,4,3,12,M14.36,A32,TBD,2,#d62728,5
+FOSL2,5,6,4,15,M15.111,A33,TBD,2,#d62728,5
+PRKX,5,4,3,12,M14.17,A2,Gene transcription,2,#d62728,5
+STK36,5,3,2,10,M15.1,A6,TBD,2,#d62728,5
+SP3,5,4,3,12,M13.7,A33,TBD,2,#d62728,5
+TPST2,5,3,2,10,M13.1,A35,Inflammation,2,#d62728,5
+TIMP1,5,3,2,10,M13.1,A35,Inflammation,2,#d62728,5
+RHOC,5,3,2,10,M14.10,A26,TBD,2,#d62728,5
+ITGAV,5,3,2,10,M15.45,A6,Platelet,2,#d62728,5
+WDFY1,5,4,3,12,M14.14,A6,Protein modification,2,#d62728,5
+ITGB1BP1,5,4,3,12,M14.2,A2,Protein synthesis,2,#d62728,5
+JARID1A,5,3,2,10,M13.5,A32,Cell death,2,#d62728,5
+PIK3C2B,5,4,3,12,M16.3,A6,T cells,2,#d62728,5
+MYC,5,4,3,12,M13.2,A1,Gene transcription,2,#d62728,5
+WWP2,5,3,2,10,M15.39,A8,TBD,2,#d62728,5
+RAPGEF6,5,2,1,8,M14.61,A2,Protein modification,2,#d62728,5
+SGK3,5,4,3,12,M13.19,A30,Protein phosphorylation,2,#d62728,5
+DDEF1,5,3,2,10,M13.3,A35,TBD,2,#d62728,5
+MEF2C,5,4,3,12,M14.12,A1,Cell cycle,2,#d62728,5
+SLC3A2,5,4,3,12,M16.1,A33,TBD,2,#d62728,5
+ID2,4,5,3,12,M13.2,A1,Gene transcription,2,#d62728,5
+MMP23B,5,4,3,12,M13.21,A2,Cytotoxic lymphocytes,2,#d62728,5
+USP8,6,3,2,11,M14.29,A32,TBD,2,#d62728,5
+MAP3K3,5,4,3,12,M15.105,A35,Inflammation,2,#d62728,5
+PRKCI,5,4,3,12,M16.13,A5,Protein modification,2,#d62728,5
+DIXDC1,5,4,3,12,M16.48,A21,TBD,2,#d62728,5
