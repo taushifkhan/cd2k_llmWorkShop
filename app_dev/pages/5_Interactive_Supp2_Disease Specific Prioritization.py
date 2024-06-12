@@ -89,7 +89,6 @@ resolution, staring from module , Module Function Title and Module Aggregate. Wi
 gets effected in the context of Sepsis. These aggregates are well defined in the [BloodGen3](https://pubmed.ncbi.nlm.nih.gov/33624743/).
 """)
 # plot4
-app_dev
 
 st.header("Module Response Profile to Sepsis")
 moduleFracPlot = sSC.moduleRespPlots(atL1_evd_annpt,score_cols,geneBase,color_key)
