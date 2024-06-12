@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import sys, json
-sys.path.append("../codeBase")
+sys.path.append("app_dev/codeBase")
 import SepsisStudyCode as sSC
 
 st.markdown("""
@@ -23,14 +23,14 @@ The analysis cost about $200 USD and utilized 156 CPU hours.
 
 """)
 with st.expander("see parameter file used for capturing gene specific response to Sepsis"):
-    st.json(json.load(open('data_repo/paramFiles/sepsis_param.json',"r")))
+    st.json(json.load(open('app_dev/data_repo/paramFiles/sepsis_param.json',"r")))
 
 st.header("Overview of result")
 # load bloodGen3 repo data
-geneBase = pd.read_csv("data_repo/geneList/ModuleTranscript_geneList.csv.gzip",compression="gzip").set_index("geneSymbol")
+geneBase = pd.read_csv("app_dev/data_repo/geneList/ModuleTranscript_geneList.csv.gzip",compression="gzip").set_index("geneSymbol")
 geneBase = geneBase.drop("Unnamed: 0",axis=1)
 # load response curated data
-atL1_evd_annpt = pd.read_csv("data_repo/CaseStudy/Sepsis/GenelevelData_annnotated.csv").set_index("geneName")
+atL1_evd_annpt = pd.read_csv("app_dev/data_repo/CaseStudy/Sepsis/GenelevelData_annnotated.csv").set_index("geneName")
 color_key = atL1_evd_annpt[['ClusterName','c_color']].sort_values(by="ClusterName").set_index("ClusterName").to_dict()['c_color']
 
 # plot 1
@@ -89,7 +89,7 @@ resolution, staring from module , Module Function Title and Module Aggregate. Wi
 gets effected in the context of Sepsis. These aggregates are well defined in the [BloodGen3](https://pubmed.ncbi.nlm.nih.gov/33624743/).
 """)
 # plot4
-
+app_dev
 
 st.header("Module Response Profile to Sepsis")
 moduleFracPlot = sSC.moduleRespPlots(atL1_evd_annpt,score_cols,geneBase,color_key)
@@ -100,7 +100,7 @@ gene membership across different modules related to sepsis, with each module rep
 The y-axis displays the fraction of member genes within each cluster, represented by stacked color bars corresponding to each cluster. 
 The calculation for the representation of cluster members in each module is performed by dividing the number of genes in a cluster 
 for a specific ModuleID by the total number of genes in that respective ModuleID. The top panel of the figure provides additional 
-context by showing the total number and percentage of genes in each respective module, 
+context by showing the total number and percentage of geapp_devnes in each respective module, 
 helping to understand the scale and relevance of each module's gene population.
                 """)
 

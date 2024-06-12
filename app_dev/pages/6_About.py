@@ -29,7 +29,7 @@ Ensure Docker is installed on your system. Download it from the
 #### 2. Pull a Docker Image
 
 Before running a container, you need to have a Docker image. Pull the image from Docker Hub with the following command:
-
+app_dev
 ```bash
 docker pull takh/llmgene_workshop:latest # to get the container
 docker run -p 8501:8501 takh/llmgene_workshop:latest # run locally application is on localhost:8501
