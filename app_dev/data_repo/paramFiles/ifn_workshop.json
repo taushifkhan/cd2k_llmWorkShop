@@ -1,0 +1,21 @@
+{
+    "background": [
+        "gene name",
+        "Brief summary"
+    ],
+    "scoring_strategy": "provide score 0 to 10 on following statements with 0 being low evidence and 10 being high evidence",
+    "model_setting": {
+        "temperature": 0.7,
+        "q_iter": 3
+    },
+    "question": [
+        "The gene is associated with type I interferon responses",
+        "The gene is associated with type II interferon responses",
+        "The gene is associated with type III interferon responses",
+        "The gene is relevant to circulating leukocytes immune biology",
+        "The gene or its products are currently being used as a biomarker in clinical settings",
+        "The gene has potential value as a blood transcriptional biomarker",
+        "The gene is a known drug target",
+        "The gene is therapeutically relevant for diseases involving the immune system"
+    ]
+}
