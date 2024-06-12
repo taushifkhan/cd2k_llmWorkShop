@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import json, time, sys
 
-sys.path.append("../codeBase")
+sys.path.append("app_dev/codeBase")
 import openAI_api_withwait as oX
 
 

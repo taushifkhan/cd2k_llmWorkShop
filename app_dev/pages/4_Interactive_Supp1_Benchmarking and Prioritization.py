@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import altair as alt
 import scipy.stats as sp
 import sys, json
-sys.path.append("../codeBase")
+sys.path.append("app_dev/codeBase")
 
 
 
@@ -27,7 +27,7 @@ statements to comprehensively define each gene's relevance to current medical re
 """)
 
 with st.expander("see parameter file used for capturing gene specific response to Interferon"):
-    st.json(json.load(open('data_repo/paramFiles/ifn_workshop.json',"r")))
+    st.json(json.load(open('app_dev/data_repo/paramFiles/ifn_workshop.json',"r")))
 
 case1, case2 = st.tabs(["IFN-Benchmarking", "IFN-Gene Selection"])
 
@@ -51,7 +51,7 @@ with case1:
     The aggregate (mean) response for each statement (n=8) across the 21 genes was evaluated for all six response modes. 
     Pearson correlation was utilized to compare the agreement in the overall mean responses generated across the aforementioned modes.
                 """)
-    bm_inter = pd.read_csv("data_repo/CaseStudy/Interferone/Benchmarking_M10.1.csv.gz",compression="gzip")
+    bm_inter = pd.read_csv("app_dev/data_repo/CaseStudy/Interferone/Benchmarking_M10.1.csv.gz",compression="gzip")
     corr_overall = bm_inter[['API_3x', 'API_5x', 'Manual_US',
        'Manual_Thailand', 'Manual_Qatar', 'Claude-3']].corr()
     corr_interX = corr_overall.unstack().reset_index().rename({'level_0':'callMode1','level_1':'callMode2',0:'pearsonCorr'},axis=1)
@@ -206,7 +206,7 @@ with case2:
     order of their total score from top to bottom.
     
                 """)
-    api_scores = pd.read_csv("data_repo/CaseStudy/Interferone/ApiScore_replicates.csv.gz",compression="gzip")
+    api_scores = pd.read_csv("app_dev/data_repo/CaseStudy/Interferone/ApiScore_replicates.csv.gz",compression="gzip")
     module_select = st.selectbox("load a module to see overall score", api_scores.moduleID.unique())
     stackedPLot = get_barPlot_scores(api_scores, module_select)
     st.altair_chart(stackedPLot,use_container_width=True)

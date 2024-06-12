@@ -4,7 +4,7 @@ import pandas as pd
 from glob import glob
 import json, time, sys
 
-sys.path.append("../codeBase")
+sys.path.append("app_dev/codeBase")
 import openAI_api_withwait as oX
 
 st.set_page_config(page_title="Try BloodGen3 Modules", page_icon=":bow_and_arrow:")
@@ -14,7 +14,7 @@ st.markdown("""
 """)
 bloodGen3 = pd.read_csv("data_repo/geneList/ModuleTranscript_BioINfo.csv")
 
-param_theme_dir = 'data_repo/paramFiles/'
+param_theme_dir = 'app_dev/data_repo/paramFiles/'
 param_theme={'erythropoiesis':param_theme_dir+'erythropoiesis_param.json',\
              'Interferone':param_theme_dir+'ifn_workshop.json',\
              'DiseaseSp_Sepsis':param_theme_dir+'sepsis_param.json',\

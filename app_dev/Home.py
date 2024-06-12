@@ -12,7 +12,7 @@ Given an api, after authentication, you can use different models listed. See vid
             """)
 
 
-tutorial_video = open("data_repo/demo/tutorial_video_March2024.mp4","rb")
+tutorial_video = open("app_dev/data_repo/demo/tutorial_video_March2024.mp4","rb")
 video_bytes = tutorial_video.read()
 st.video(video_bytes)
 
@@ -79,23 +79,3 @@ elif api_flavours == "azure":
         st.session_state['api_obj'] = gA
     st.write(gA.modelInfo)
     st.success("AzureOpenAI is now linked. WIll use give model in this session.")
-
-    # except Exception as e:
-    #     st.warning("Error in API access:")
-    #     st.write(str(e))
-    #     st.stop()
-
-
-    # st.write(openai.Models.list())
-
-    # openai.api_key = openai_api_key
-    # openai.api_type = 'azure'
-    # openai.api_base =  'https://datasvc-openai-dev.openai.azure.com/'
-    # openai.api_version = '2023-05-15'
-
-
-
-    # st.header("Models with give api")
-    # st.write(openAi_models[openAi_models.completion==True])
-    # st.info("(Read more about Models available in openAI)[https://platform.openai.com/docs/models]")
-    # openAi_models_select = st.selectbox("choose model ,use 'text-davinci-003':", list(openAi_models.modelName.values))

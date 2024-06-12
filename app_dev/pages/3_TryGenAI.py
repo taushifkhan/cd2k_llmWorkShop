@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import json, sys
 
-sys.path.append("../codeBase")
+sys.path.append("app_dev/codeBase")
 import privateAPIcall as pA
 import openAI_api_withwait as oX
 
