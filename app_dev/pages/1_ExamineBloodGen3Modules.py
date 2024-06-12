@@ -12,7 +12,7 @@ st.set_page_config(page_title="Try BloodGen3 Modules", page_icon=":bow_and_arrow
 st.markdown("""
 #### Use gene list from BloodGen3 Repo [left column] to explore themes [right column].
 """)
-bloodGen3 = pd.read_csv("data_repo/geneList/ModuleTranscript_BioINfo.csv")
+bloodGen3 = pd.read_csv("app_dev/data_repo/geneList/ModuleTranscript_BioINfo.csv")
 
 param_theme_dir = 'app_dev/data_repo/paramFiles/'
 param_theme={'erythropoiesis':param_theme_dir+'erythropoiesis_param.json',\
