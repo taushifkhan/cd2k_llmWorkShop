@@ -55,14 +55,13 @@ with paramFile_upload:
     if uploaded_param_file is not None:
         # Can be used wherever a "file-like" object is accepted:
         param_json = json.load(uploaded_param_file)
+        st.json(param_json)
 
     elif load_example_params:
         st.info("Loading example parameters file.")
         with open(example_param_file) as f:
             param_json = json.load(f)
-    
-    st.json(param_json)
-    print (param_json.keys())
+        st.json(param_json)
 
 
 
@@ -88,6 +87,8 @@ if (uploaded_gene_file is not None) & (uploaded_param_file is not None):
         gList = gene_dataframe.Genes.values
         progress_bar = st.sidebar.progress(0)
         status_text = st.sidebar.empty()
+
+        gene_to_run_count = _checkGeneList(gene_dataframe)  # Move the definition of gene_to_run_count here
 
         json_response = {}
         gen_to_run = gList[:gene_to_run_count]
