@@ -31,11 +31,13 @@ with gene_upload:
     if uploaded_gene_file is not None:
         # Can be used wherever a "file-like" object is accepted:
         gene_dataframe = pd.read_csv(uploaded_gene_file)
+        st.write(gene_dataframe)
     elif load_Exmaple_gene:
         gene_dataframe = pd.read_csv(example_gene_file)
+        st.write(gene_dataframe)
     
 
-    st.write(gene_dataframe)
+    
 
     if 'Genes' in gene_dataframe.columns:
         st.sidebar.header("choose top [n] genes to run")
