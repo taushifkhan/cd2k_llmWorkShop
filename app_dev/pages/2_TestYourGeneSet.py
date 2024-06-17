@@ -14,41 +14,61 @@ st.markdown("""
 **Important** : For long list of genes consider using local deployment
 """)
 
+gene_upload, paramFile_upload = st.columns(2)
+# param_json = {}
+# gene_dataframe = pd.DataFrame()
+
+
+# Predefined example files
+example_gene_file = "app_dev/data_repo/demo/M9.2_genes.csv"
+example_param_file = "app_dev/data_repo/demo/test_param.json"
+
+
+with gene_upload:
+    uploaded_gene_file = st.file_uploader("Choose a CSV file with genes in 'Genes' column",type=['csv'])
+    load_Exmaple_gene = st.checkbox("Load Example gene list")
+
+    if uploaded_gene_file is not None:
+        # Can be used wherever a "file-like" object is accepted:
+        gene_dataframe = pd.read_csv(uploaded_gene_file)
+    elif load_Exmaple_gene:
+        gene_dataframe = pd.read_csv(example_gene_file)
+    
+
+    st.write(gene_dataframe)
+
+    if 'Genes' in gene_dataframe.columns:
+        st.sidebar.header("choose top [n] genes to run")
+        gene_to_run_count = st.sidebar.slider(label="choose n top gene:", min_value=2,max_value=gene_dataframe.Genes.nunique())
+        st.info("Will use top {}[/{}] gene from the uploaded doc".format(gene_to_run_count, gene_dataframe.Genes.nunique()))
+
+    else:
+        st.warning("Consider renaming gene coulumn as 'Genes'. Can not process uploaded file")
+
+with paramFile_upload:
+    uploaded_param_file = st.file_uploader("Choose a JSON file with DEFINED paramters",type=['json'])
+    load_example_params = st.checkbox("Load example parameters")
+
+    if uploaded_param_file is not None:
+        # Can be used wherever a "file-like" object is accepted:
+        param_json = json.load(uploaded_param_file)
+
+    elif load_example_params:
+        st.info("Loading example parameters file.")
+        with open(example_param_file) as f:
+            param_json = json.load(f)
+    
+    st.json(param_json)
+    print (param_json.keys())
+
+
+
 if 'api_obj' not in st.session_state:
     st.warning("To proceed further activate sesson with key")
     st.stop()
 
 else:
     callAPI = st.session_state['api_obj']
-
-gene_upload, paramFile_upload = st.columns(2)
-# param_json = {}
-# gene_dataframe = pd.DataFrame()
-
-with gene_upload:
-    uploaded_gene_file = st.file_uploader("Choose a CSV file with genes in 'Genes' column",type=['csv'])
-    if uploaded_gene_file is not None:
-        # Can be used wherever a "file-like" object is accepted:
-        gene_dataframe = pd.read_csv(uploaded_gene_file)
-        st.write(gene_dataframe)
-
-        if 'Genes' in gene_dataframe.columns:
-            st.sidebar.header("choose top [n] genes to run")
-            gene_to_run_count = st.sidebar.slider(label="choose n top gene:", min_value=2,max_value=gene_dataframe.Genes.nunique())
-            st.info("Will use top {}[/{}] gene from the uploaded doc".format(gene_to_run_count, gene_dataframe.Genes.nunique()))
-
-        else:
-            st.warning("Consider renaming gene coulumn as 'Genes'. Can not process uploaded file")
-
-with paramFile_upload:
-    uploaded_param_file = st.file_uploader("Choose a JSON file with DEFINED paramters",type=['json'])
-
-    if uploaded_param_file is not None:
-        # Can be used wherever a "file-like" object is accepted:
-        param_json = json.load(uploaded_param_file)
-        st.json(param_json)
-        print (param_json.keys())
-
 
 st.sidebar.header("LLM Progress")
 status_text = st.sidebar.empty()

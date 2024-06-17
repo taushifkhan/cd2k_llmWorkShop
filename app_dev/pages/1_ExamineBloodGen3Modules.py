@@ -55,7 +55,7 @@ if 'api_obj' not in st.session_state:
 else:
     callAPI = st.session_state['api_obj']
 
-openAi_models_sel = callAPI.modelInfo[callAPI.modelInfo.modelName.str.contains("gpt")]
+openAi_models_sel = callAPI.modelInfo[(callAPI.modelInfo.modelName.str.contains("gpt"))&(callAPI.modelInfo.ownedby=="openai")]
 openAi_models_select = st.selectbox("Select Model [gpt engine]",list(openAi_models_sel.modelName.values))
 st.info("prompt will use selected model : {}".format(openAi_models_select))
 
