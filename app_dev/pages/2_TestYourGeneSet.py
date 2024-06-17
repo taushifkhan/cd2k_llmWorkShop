@@ -6,6 +6,16 @@ import json, time, sys
 sys.path.append("app_dev/codeBase")
 import openAI_api_withwait as oX
 
+def _checkGeneList(gene_dataframe):
+    if 'Genes' in gene_dataframe.columns:
+        st.sidebar.header("choose top [n] genes to run")
+        gene_to_run_count = st.sidebar.slider(label="choose n top gene:", min_value=2,max_value=gene_dataframe.Genes.nunique())
+        st.info("Will use top {}[/{}] gene from the uploaded doc".format(gene_to_run_count, gene_dataframe.Genes.nunique()))
+        return gene_to_run_count
+    else:
+        st.warning("Consider renaming gene coulumn as 'Genes'. Can not process uploaded file")
+        return False
+    
 
 st.set_page_config(page_title="Upload your gene set", page_icon="📈")
 
@@ -32,20 +42,11 @@ with gene_upload:
         # Can be used wherever a "file-like" object is accepted:
         gene_dataframe = pd.read_csv(uploaded_gene_file)
         st.write(gene_dataframe)
+        gene_to_run_count = _checkGeneList(gene_dataframe)
     elif load_Exmaple_gene:
         gene_dataframe = pd.read_csv(example_gene_file)
         st.write(gene_dataframe)
-    
-
-    
-
-    if 'Genes' in gene_dataframe.columns:
-        st.sidebar.header("choose top [n] genes to run")
-        gene_to_run_count = st.sidebar.slider(label="choose n top gene:", min_value=2,max_value=gene_dataframe.Genes.nunique())
-        st.info("Will use top {}[/{}] gene from the uploaded doc".format(gene_to_run_count, gene_dataframe.Genes.nunique()))
-
-    else:
-        st.warning("Consider renaming gene coulumn as 'Genes'. Can not process uploaded file")
+        gene_to_run_count = _checkGeneList(gene_dataframe)
 
 with paramFile_upload:
     uploaded_param_file = st.file_uploader("Choose a JSON file with DEFINED paramters",type=['json'])
