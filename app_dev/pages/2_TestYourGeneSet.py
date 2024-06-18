@@ -78,6 +78,8 @@ else:
     openAi_models_select = st.selectbox("Select Model [gpt engine]",list(openAi_models_sel.modelName.values))
     st.info("prompt will use selected model : {}".format(openAi_models_select))
 
+json_response = {}
+
 if gene_dataframe.empty or not param_json or 'api_obj' not in st.session_state:
     st.warning("Please upload (1) gene list (2) parameters and (3) active session with openAI API to proceed further")
     st.stop()
@@ -96,7 +98,7 @@ else:
 
         if submit_try_gene:
             st.info("Proceeding with gene list and parameters")
-            json_response = {}
+            
             st.sidebar.header("LLM Progress")
             status_text = st.sidebar.empty()
             progress_bar = st.sidebar.progress(0)
