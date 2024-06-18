@@ -17,6 +17,7 @@ class genAuth:
             # capbility =k["capabilities"]
             openAi_models.append([k.id,k.object,k.owned_by])
         self.modelInfo = pd.DataFrame(openAi_models,columns=["modelName","object","ownedby"])
+        self.modelInfo = self.modelInfo[(self.modelInfo.modelName.str.contains("gpt"))&(self.modelInfo.modelInfo.ownedby=="openai")]
         self.check()
         if self.client_state:
             return True

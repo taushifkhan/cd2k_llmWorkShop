@@ -33,7 +33,7 @@ if api_flavours == "general":
         gA = pA.genAuth(openai_api_key)
         assert gA.getModels(), "error in model access"
         if gA.client_state:
-            openAi_models_sel = gA.modelInfo[(gA.modelInfo.modelName.str.contains("gpt"))&(gA.modelInfo.ownedby=="openai")]
+            openAi_models_sel = gA.modelInfo
             if 'api_obj' not in st.session_state:
                 st.session_state['api_obj'] = gA
             st.header("Models with give api")
