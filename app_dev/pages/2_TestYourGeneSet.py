@@ -110,11 +110,9 @@ with st.form("Try_gene_set"):
     openAi_models_select = st.selectbox("Select Model [gpt engine]",list(openAi_models_sel.modelName.values))
     st.info("prompt will use selected model : {}".format(openAi_models_select))
     
-    submit_try_gene = st.form_submit_button("Try_gene_set")
+    submit_try_gene = st.form_submit_button("Run Gene Set")
 
-    if not submit_try_gene:
-        st.stop()
-    else:
+    if submit_try_gene:
         st.info("Proceeding with gene list and parameters")
         json_response = {}
         
