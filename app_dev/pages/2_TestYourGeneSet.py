@@ -69,61 +69,63 @@ with paramFile_upload:
     else:
         st.warning("Please upload parameter file")
 
-
-
-with st.form("Try_gene_set"):
-    st.write("Upload your gene list and parameters to proceed further")
-    st.write("Note: Gene list should be in CSV format with 'Genes' column")
-    st.write("Note: Parameters should be in JSON format with 'background', 'scoring_strategy' and 'question' keys")    
-    
-    if 'api_obj' not in st.session_state:
+if 'api_obj' not in st.session_state:
         st.warning("To proceed further activate sesson with key")
-    else:
-        callAPI = st.session_state['api_obj']
-        st.info("API object is active")
-        openAi_models_sel = callAPI.modelInfo[(callAPI.modelInfo.modelName.str.contains("gpt"))&(callAPI.modelInfo.ownedby=="openai")]
-        openAi_models_select = st.selectbox("Select Model [gpt engine]",list(openAi_models_sel.modelName.values))
-        st.info("prompt will use selected model : {}".format(openAi_models_select))
-    
-    gene_to_run_count = st.slider(label="choose n top gene:", min_value=2,max_value=gene_dataframe.Genes.nunique())
-    st.info("Will use top {}[/{}] gene from the uploaded doc".format(gene_to_run_count, gene_dataframe.Genes.nunique()))
-    gList = gene_dataframe.Genes.values
-    gen_to_run = gList[:gene_to_run_count]
-    
-    submit_try_gene = st.form_submit_button("Run Gene Set")
+else:
+    callAPI = st.session_state['api_obj']
+    st.info("API object is active")
+    openAi_models_sel = callAPI.modelInfo[(callAPI.modelInfo.modelName.str.contains("gpt"))&(callAPI.modelInfo.ownedby=="openai")]
+    openAi_models_select = st.selectbox("Select Model [gpt engine]",list(openAi_models_sel.modelName.values))
+    st.info("prompt will use selected model : {}".format(openAi_models_select))
 
-    if submit_try_gene:
-        st.info("Proceeding with gene list and parameters")
-        json_response = {}
-        st.sidebar.header("LLM Progress")
-        status_text = st.sidebar.empty()
-        progress_bar = st.sidebar.progress(0)
-        status_text = st.sidebar.empty()
-        st.write("Genrating LLM response ...[Approximate time for {} genes = {} mins]".format(len(gen_to_run),len(gen_to_run)))
-        time_start = time.time()
-        last_run = 0
-        for i in range(1, len(gen_to_run)+1):
-            status_text.text("Runnning {}[{}/{}]|last run {}sec".format(gen_to_run[i-1], i, gene_to_run_count, last_run))
-            dxv = oX.run_for_gene(callAPI, gList[i-1],param_json, model_to_use= openAi_models_select, backofftimer = 40,iteration=1) # have to include model variableqaz3q1  
-            json_response[gList[i-1]] = dxv
-            progress_bar.progress(int(i/(len(gen_to_run)+1)*100))
-            last_run = round(time.time()-time_start, 2)
+if gene_dataframe.empty or not param_json or 'api_obj' not in st.session_state:
+    st.warning("Please upload gene list and parameters to proceed further")
+    st.stop()
+else:
+    with st.form("Try_gene_set"):
+        st.write("Upload your gene list and parameters to proceed further")
+        st.write("Note: Gene list should be in CSV format with 'Genes' column")
+        st.write("Note: Parameters should be in JSON format with 'background', 'scoring_strategy' and 'question' keys")
         
-        time_expand = time.time()-time_start
+        gene_to_run_count = st.slider(label="choose n top gene:", min_value=2,max_value=gene_dataframe.Genes.nunique())
+        st.info("Will use top {}[/{}] gene from the uploaded doc".format(gene_to_run_count, gene_dataframe.Genes.nunique()))
+        gList = gene_dataframe.Genes.values
+        gen_to_run = gList[:gene_to_run_count]
         
-        st.write("Completed in {} sec [{} mins]".format(round(time_expand,3), round(time_expand/60,3)))
-        progress_bar.empty()
+        submit_try_gene = st.form_submit_button("Run Gene Set")
+
+        if submit_try_gene:
+            st.info("Proceeding with gene list and parameters")
+            json_response = {}
+            st.sidebar.header("LLM Progress")
+            status_text = st.sidebar.empty()
+            progress_bar = st.sidebar.progress(0)
+            status_text = st.sidebar.empty()
+            st.write("Genrating LLM response ...[Approximate time for {} genes = {} mins]".format(len(gen_to_run),len(gen_to_run)))
+            time_start = time.time()
+            last_run = 0
+            for i in range(1, len(gen_to_run)+1):
+                status_text.text("Runnning {}[{}/{}]|last run {}sec".format(gen_to_run[i-1], i, gene_to_run_count, last_run))
+                dxv = oX.run_for_gene(callAPI, gList[i-1],param_json, model_to_use= openAi_models_select, backofftimer = 40,iteration=1) # have to include model variableqaz3q1  
+                json_response[gList[i-1]] = dxv
+                progress_bar.progress(int(i/(len(gen_to_run)+1)*100))
+                last_run = round(time.time()-time_start, 2)
+            
+            time_expand = time.time()-time_start
+            
+            st.write("Completed in {} sec [{} mins]".format(round(time_expand,3), round(time_expand/60,3)))
+            progress_bar.empty()
 
 
-        if json_response:
-            st.info("Save output as JSON file")
-            json_string_response = json.dumps(json_response)
-            with st.expander("see result in JSON"):
-                st.json(json_string_response, expanded=True)
+            if json_response:
+                st.info("Save output as JSON file")
+                json_string_response = json.dumps(json_response)
+                with st.expander("see result in JSON"):
+                    st.json(json_string_response, expanded=True)
 
-            st.download_button(
-                label="Download JSON",
-                file_name="data_Response.json",
-                mime="application/json",
-                data=json_string_response,
-            )
+                st.download_button(
+                    label="Download JSON",
+                    file_name="data_Response.json",
+                    mime="application/json",
+                    data=json_string_response,
+                )
