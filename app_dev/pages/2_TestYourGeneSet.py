@@ -117,15 +117,15 @@ else:
             progress_bar.empty()
 
 
-            if json_response:
-                st.info("Save output as JSON file")
-                json_string_response = json.dumps(json_response)
-                with st.expander("see result in JSON"):
-                    st.json(json_string_response, expanded=True)
+if json_response:
+    st.info("Save output as JSON file")
+    json_string_response = json.dumps(json_response)
+    with st.expander("see result in JSON"):
+        st.json(json_string_response, expanded=True)
 
-                st.download_button(
-                    label="Download JSON",
-                    file_name="data_Response.json",
-                    mime="application/json",
-                    data=json_string_response,
-                )
+    st.download_button(
+        label="Download JSON",
+        file_name="data_Response.json",
+        mime="application/json",
+        data=json_string_response,
+    )
