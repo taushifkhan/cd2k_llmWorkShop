@@ -112,45 +112,45 @@ with st.form("Try_gene_set"):
     
     submit_try_gene = st.form_submit_button("Try_gene_set")
 
-if not submit_try_gene:
-    st.stop()
-else:
-    st.info("Proceeding with gene list and parameters")
-    json_response = {}
-    
-    gList = gene_dataframe.Genes.values
-    gen_to_run = gList[:gene_to_run_count]
+    if not submit_try_gene:
+        st.stop()
+    else:
+        st.info("Proceeding with gene list and parameters")
+        json_response = {}
+        
+        gList = gene_dataframe.Genes.values
+        gen_to_run = gList[:gene_to_run_count]
 
-    st.sidebar.header("LLM Progress")
+        st.sidebar.header("LLM Progress")
 
-    status_text = st.sidebar.empty()
-    progress_bar = st.sidebar.progress(0)
-    status_text = st.sidebar.empty()
-    st.write("Genrating LLM response ...[Approximate time for {} genes = {} mins]".format(len(gen_to_run),len(gen_to_run)))
-    time_start = time.time()
-    last_run = 0
-    for i in range(1, len(gen_to_run)+1):
-        status_text.text("Runnning {}[{}/{}]|last run {}sec".format(gen_to_run[i-1], i, gene_to_run_count, last_run))
-        dxv = oX.run_for_gene(callAPI, gList[i-1],param_json, model_to_use= openAi_models_select, backofftimer = 40,iteration=1) # have to include model variableqaz3q1  
-        json_response[gList[i-1]] = dxv
-        progress_bar.progress(int(i/(len(gen_to_run)+1)*100))
-        last_run = round(time.time()-time_start, 2)
-    
-    time_expand = time.time()-time_start
-    
-    st.write("Completed in {} sec [{} mins]".format(round(time_expand,3), round(time_expand/60,3)))
-    progress_bar.empty()
+        status_text = st.sidebar.empty()
+        progress_bar = st.sidebar.progress(0)
+        status_text = st.sidebar.empty()
+        st.write("Genrating LLM response ...[Approximate time for {} genes = {} mins]".format(len(gen_to_run),len(gen_to_run)))
+        time_start = time.time()
+        last_run = 0
+        for i in range(1, len(gen_to_run)+1):
+            status_text.text("Runnning {}[{}/{}]|last run {}sec".format(gen_to_run[i-1], i, gene_to_run_count, last_run))
+            dxv = oX.run_for_gene(callAPI, gList[i-1],param_json, model_to_use= openAi_models_select, backofftimer = 40,iteration=1) # have to include model variableqaz3q1  
+            json_response[gList[i-1]] = dxv
+            progress_bar.progress(int(i/(len(gen_to_run)+1)*100))
+            last_run = round(time.time()-time_start, 2)
+        
+        time_expand = time.time()-time_start
+        
+        st.write("Completed in {} sec [{} mins]".format(round(time_expand,3), round(time_expand/60,3)))
+        progress_bar.empty()
 
 
-    if json_response:
-        st.info("Save output as JSON file")
-        json_string_response = json.dumps(json_response)
-        with st.expander("see result in JSON"):
-            st.json(json_string_response, expanded=True)
+        if json_response:
+            st.info("Save output as JSON file")
+            json_string_response = json.dumps(json_response)
+            with st.expander("see result in JSON"):
+                st.json(json_string_response, expanded=True)
 
-        st.download_button(
-            label="Download JSON",
-            file_name="data_Response.json",
-            mime="application/json",
-            data=json_string_response,
-        )
+            st.download_button(
+                label="Download JSON",
+                file_name="data_Response.json",
+                mime="application/json",
+                data=json_string_response,
+            )
