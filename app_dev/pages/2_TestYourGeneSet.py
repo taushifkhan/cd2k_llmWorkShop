@@ -59,16 +59,18 @@ with st.form("Try_gene_set"):
     with gene_upload:
         uploaded_gene_file = st.file_uploader("Choose a CSV file with genes in 'Genes' column",type=['csv'])
         load_Exmaple_gene = st.checkbox("Load Example gene list")
-        gene_dataframe = pd.DataFrame()
+
         if uploaded_gene_file is not None:
             # Can be used wherever a "file-like" object is accepted:
             gene_dataframe = pd.read_csv(uploaded_gene_file)
+            gene_to_run_count = _checkGeneList(gene_dataframe)
 
         elif load_Exmaple_gene:
             gene_dataframe = pd.read_csv(example_gene_file)
             st.info("Loading example gene file.")
-
-        gene_to_run_count = _checkGeneList(gene_dataframe)
+            gene_to_run_count = _checkGeneList(gene_dataframe)
+        else:
+            st.warning("Please upload gene list")
 
     with paramFile_upload:
 
@@ -87,7 +89,9 @@ with st.form("Try_gene_set"):
                 param_json = json.load(f)
             assert _checkParamFile(param_json)
             st.json(param_json)
-
+        else:
+            st.warning("Please upload parameter file")
+            
     callAPI = _checkSession()
     st.warning("current version works best with GPT4 models")
     openAi_models_sel = callAPI.modelInfo[(callAPI.modelInfo.modelName.str.contains("gpt"))&(callAPI.modelInfo.ownedby=="openai")]
