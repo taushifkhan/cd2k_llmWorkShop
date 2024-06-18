@@ -36,7 +36,6 @@ def _checkSession():
 
     if 'api_obj' not in st.session_state:
         st.warning("To proceed further activate sesson with key")
-        st.stop()
         return False
 
     else:
@@ -91,12 +90,15 @@ with st.form("Try_gene_set"):
             st.json(param_json)
         else:
             st.warning("Please upload parameter file")
-            
-    callAPI = _checkSession()
-    st.warning("current version works best with GPT4 models")
-    openAi_models_sel = callAPI.modelInfo[(callAPI.modelInfo.modelName.str.contains("gpt"))&(callAPI.modelInfo.ownedby=="openai")]
-    openAi_models_select = st.selectbox("Select Model [gpt engine]",list(openAi_models_sel.modelName.values))
-    st.info("prompt will use selected model : {}".format(openAi_models_select))
+    
+    if 'api_obj' not in st.session_state:
+        st.warning("To proceed further activate sesson with key")
+    else:
+        callAPI = st.session_state['api_obj']
+        st.info("API object is active")
+        openAi_models_sel = callAPI.modelInfo[(callAPI.modelInfo.modelName.str.contains("gpt"))&(callAPI.modelInfo.ownedby=="openai")]
+        openAi_models_select = st.selectbox("Select Model [gpt engine]",list(openAi_models_sel.modelName.values))
+        st.info("prompt will use selected model : {}".format(openAi_models_select))
     
     submit_try_gene = st.form_submit_button("Run Gene Set")
 
