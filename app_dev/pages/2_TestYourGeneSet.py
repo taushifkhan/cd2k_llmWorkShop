@@ -31,7 +31,7 @@ gene_upload, paramFile_upload = st.columns(2)
 with gene_upload:
     uploaded_gene_file = st.file_uploader("Choose a CSV file with genes in 'Genes' column",type=['csv'])
     load_Exmaple_gene = st.checkbox("Load Example gene list")
-
+    gene_dataframe = pd.DataFrame()
     if uploaded_gene_file is not None:
         # Can be used wherever a "file-like" object is accepted:
         gene_dataframe = pd.read_csv(uploaded_gene_file)
@@ -53,7 +53,7 @@ with paramFile_upload:
 
     uploaded_param_file = st.file_uploader("Choose a JSON file with DEFINED paramters",type=['json'])
     load_example_params = st.checkbox("Load example parameters")
-
+    param_json = {}
     if uploaded_param_file is not None:
         # Can be used wherever a "file-like" object is accepted:
         param_json = json.load(uploaded_param_file)
