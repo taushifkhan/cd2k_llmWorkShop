@@ -7,6 +7,9 @@ sys.path.append("app_dev/codeBase")
 import openAI_api_withwait as oX
 
 def _checkGeneList(gene_dataframe):
+    """
+    Function to check gene list and return number of genes to run
+    """
     if 'Genes' in gene_dataframe.columns:
         st.sidebar.header("choose top [n] genes to run")
         gene_to_run_count = st.sidebar.slider(label="choose n top gene:", min_value=2,max_value=gene_dataframe.Genes.nunique())
@@ -16,6 +19,69 @@ def _checkGeneList(gene_dataframe):
         st.warning("Consider renaming gene coulumn as 'Genes'. Can not process uploaded file")
         return False
     
+def _checkParamFile(param_json):
+    if all(key in param_json for key in ('background', 'scoring_strategy', 'question')):
+        st.info("Parameters are defined")
+        return True
+    else:
+        st.warning("Parameters are not defined")
+        return False
+
+example_gene_file = "app_dev/data_repo/demo/M9.2_genes.csv"
+example_param_file = "app_dev/data_repo/demo/test_param.json"
+
+
+def _checkSession():
+    """ Function to check session state for api object"""
+
+    if 'api_obj' not in st.session_state:
+        st.warning("To proceed further activate sesson with key")
+        st.stop()
+        return False
+
+    else:
+        callAPI = st.session_state['api_obj']
+        return callAPI
+
+def upload_gene_file():
+    """
+    Function to upload gene list and parameter file 
+    """
+    #upload gene file
+    uploaded_gene_file = st.file_uploader("Choose a CSV file with genes in 'Genes' column",type=['csv'])
+    load_Exmaple_gene = st.checkbox("Load Example gene list")
+
+    if uploaded_gene_file is not None:
+        # Can be used wherever a "file-like" object is accepted:
+        gene_dataframe = pd.read_csv(uploaded_gene_file)
+
+    elif load_Exmaple_gene:
+        gene_dataframe = pd.read_csv(example_gene_file)
+        st.info("Loading example gene file.")
+    return gene_dataframe
+
+def upload_param_file():
+    """
+    Function to upload gene list and parameter file
+    
+    """
+    #upload parameter file
+    uploaded_param_file = st.file_uploader("Choose a JSON file with DEFINED paramters",type=['json'])
+    load_example_params = st.checkbox("Load example parameters")
+
+    if uploaded_param_file is not None:
+        # Can be used wherever a "file-like" object is accepted:
+        param_json = json.load(uploaded_param_file)
+        assert _checkParamFile(param_json)
+        st.json(param_json)
+
+    elif load_example_params:
+        st.info("Loading example parameters file.")
+        with open(example_param_file) as f:
+            param_json = json.load(f)
+        assert _checkParamFile(param_json)
+        st.json(param_json)
+    return param_json
 
 st.set_page_config(page_title="Upload your gene set", page_icon="📈")
 
@@ -24,99 +90,66 @@ st.markdown("""
 **Important** : For long list of genes consider using local deployment
 """)
 
-gene_upload, paramFile_upload = st.columns(2)
-# param_json = {}
-# gene_dataframe = pd.DataFrame()
+with st.form("Try_gene_set"):
+    st.write("Upload your gene list and parameters to proceed further")
+    st.write("Note: Gene list should be in CSV format with 'Genes' column")
+    st.write("Note: Parameters should be in JSON format with 'background', 'scoring_strategy' and 'question' keys")
 
-
-# Predefined example files
-example_gene_file = "app_dev/data_repo/demo/M9.2_genes.csv"
-example_param_file = "app_dev/data_repo/demo/test_param.json"
-
-
-with gene_upload:
-    uploaded_gene_file = st.file_uploader("Choose a CSV file with genes in 'Genes' column",type=['csv'])
-    load_Exmaple_gene = st.checkbox("Load Example gene list")
-
-    if uploaded_gene_file is not None:
-        # Can be used wherever a "file-like" object is accepted:
-        gene_dataframe = pd.read_csv(uploaded_gene_file)
-        st.write(gene_dataframe)
-        gene_to_run_count = _checkGeneList(gene_dataframe)
-    elif load_Exmaple_gene:
-        gene_dataframe = pd.read_csv(example_gene_file)
-        st.write(gene_dataframe)
+    gene_upload, paramFile_upload = st.columns(2)
+    with gene_upload:
+        gene_dataframe = upload_gene_file()
         gene_to_run_count = _checkGeneList(gene_dataframe)
 
-with paramFile_upload:
-    uploaded_param_file = st.file_uploader("Choose a JSON file with DEFINED paramters",type=['json'])
-    load_example_params = st.checkbox("Load example parameters")
+    with paramFile_upload:
+        param_json = upload_param_file()
 
-    if uploaded_param_file is not None:
-        # Can be used wherever a "file-like" object is accepted:
-        param_json = json.load(uploaded_param_file)
-        st.json(param_json)
+    callAPI = _checkSession()
+    st.warning("current version works best with GPT4 models")
+    openAi_models_sel = callAPI.modelInfo[(callAPI.modelInfo.modelName.str.contains("gpt"))&(callAPI.modelInfo.ownedby=="openai")]
+    openAi_models_select = st.selectbox("Select Model [gpt engine]",list(openAi_models_sel.modelName.values))
+    st.info("prompt will use selected model : {}".format(openAi_models_select))
+    
+    submit_try_gene = st.form_submit_button("Generate LLM response")
 
-    elif load_example_params:
-        st.info("Loading example parameters file.")
-        with open(example_param_file) as f:
-            param_json = json.load(f)
-        st.json(param_json)
-
-
-
-if 'api_obj' not in st.session_state:
-    st.warning("To proceed further activate sesson with key")
+if not submit_try_gene:
     st.stop()
-
 else:
-    callAPI = st.session_state['api_obj']
+    st.info("Proceeding with gene list and parameters")
+    json_response = {}
+    
+    gList = gene_dataframe.Genes.values
+    gen_to_run = gList[:gene_to_run_count]
 
-st.sidebar.header("LLM Progress")
-status_text = st.sidebar.empty()
+    st.sidebar.header("LLM Progress")
 
-
-if (uploaded_gene_file is not None) & (uploaded_param_file is not None):
-
-    if (gene_dataframe.Genes.nunique()>=1) & (all(key in param_json for key in ('background', 'scoring_strategy', 'question'))):
-
-        openAi_models_sel = callAPI.modelInfo[callAPI.modelInfo.modelName.str.contains("gpt")]
-        openAi_models_select = st.selectbox("Select Model [gpt engine]",list(openAi_models_sel.modelName.values))
-        st.info("prompt will use selected model : {}".format(openAi_models_select))
-
-        gList = gene_dataframe.Genes.values
-        progress_bar = st.sidebar.progress(0)
-        status_text = st.sidebar.empty()
-
-        gene_to_run_count = _checkGeneList(gene_dataframe)  # Move the definition of gene_to_run_count here
-
-        json_response = {}
-        gen_to_run = gList[:gene_to_run_count]
-        st.write("Genrating LLM response ...[Approximate time for {} genes = {} mins]".format(len(gen_to_run),len(gen_to_run)))
-        time_start = time.time()
-        last_run = 0
-        for i in range(1, len(gen_to_run)+1):
-            status_text.text("Runnning {}[{}/{}]|last run {}sec".format(gen_to_run[i-1], i, gene_to_run_count, last_run))
-            dxv = oX.run_for_gene(callAPI, gList[i-1],param_json, backofftimer = 40,iteration=1) # have to include model variableqaz3q1  
-            json_response[gList[i-1]] = dxv
-            progress_bar.progress(int(i/(len(gen_to_run)+1)*100))
-            last_run = round(time.time()-time_start, 2)
-        
-        time_expand = time.time()-time_start
-        
-        st.write("Completed in {} sec [{} mins]".format(round(time_expand,3), round(time_expand/60,3)))
-        progress_bar.empty()
+    status_text = st.sidebar.empty()
+    progress_bar = st.sidebar.progress(0)
+    status_text = st.sidebar.empty()
+    st.write("Genrating LLM response ...[Approximate time for {} genes = {} mins]".format(len(gen_to_run),len(gen_to_run)))
+    time_start = time.time()
+    last_run = 0
+    for i in range(1, len(gen_to_run)+1):
+        status_text.text("Runnning {}[{}/{}]|last run {}sec".format(gen_to_run[i-1], i, gene_to_run_count, last_run))
+        dxv = oX.run_for_gene(callAPI, gList[i-1],param_json, model_to_use= openAi_models_select, backofftimer = 40,iteration=1) # have to include model variableqaz3q1  
+        json_response[gList[i-1]] = dxv
+        progress_bar.progress(int(i/(len(gen_to_run)+1)*100))
+        last_run = round(time.time()-time_start, 2)
+    
+    time_expand = time.time()-time_start
+    
+    st.write("Completed in {} sec [{} mins]".format(round(time_expand,3), round(time_expand/60,3)))
+    progress_bar.empty()
 
 
-        if json_response:
-            st.info("Save output as JSON file")
-            json_string_response = json.dumps(json_response)
-            with st.expander("see result in JSON"):
-                st.json(json_string_response, expanded=True)
+    if json_response:
+        st.info("Save output as JSON file")
+        json_string_response = json.dumps(json_response)
+        with st.expander("see result in JSON"):
+            st.json(json_string_response, expanded=True)
 
-            st.download_button(
-                label="Download JSON",
-                file_name="data_Response.json",
-                mime="application/json",
-                data=json_string_response,
-            )
+        st.download_button(
+            label="Download JSON",
+            file_name="data_Response.json",
+            mime="application/json",
+            data=json_string_response,
+        )
