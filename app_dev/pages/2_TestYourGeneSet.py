@@ -50,16 +50,15 @@ def upload_gene_file():
     #upload gene file
     uploaded_gene_file = st.file_uploader("Choose a CSV file with genes in 'Genes' column",type=['csv'])
     load_Exmaple_gene = st.checkbox("Load Example gene list")
-
+    gene_dataframe = pd.DataFrame()
     if uploaded_gene_file is not None:
         # Can be used wherever a "file-like" object is accepted:
         gene_dataframe = pd.read_csv(uploaded_gene_file)
-        return gene_dataframe
 
     elif load_Exmaple_gene:
         gene_dataframe = pd.read_csv(example_gene_file)
         st.info("Loading example gene file.")
-        return gene_dataframe
+    return gene_dataframe
     
 
 def upload_param_file():
@@ -76,15 +75,14 @@ def upload_param_file():
         param_json = json.load(uploaded_param_file)
         assert _checkParamFile(param_json)
         st.json(param_json)
-        return param_json
-
+        
     elif load_example_params:
         st.info("Loading example parameters file.")
         with open(example_param_file) as f:
             param_json = json.load(f)
         assert _checkParamFile(param_json)
         st.json(param_json)
-        return param_json
+    return param_json
 
 st.set_page_config(page_title="Upload your gene set", page_icon="📈")
 
