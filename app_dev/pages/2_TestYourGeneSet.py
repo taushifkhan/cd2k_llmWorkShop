@@ -6,18 +6,6 @@ import json, time, sys
 sys.path.append("app_dev/codeBase")
 import openAI_api_withwait as oX
 
-def _checkGeneList(gene_dataframe):
-    """
-    Function to check gene list and return number of genes to run
-    """
-    if 'Genes' in gene_dataframe.columns:
-        st.sidebar.header("choose top [n] genes to run")
-        gene_to_run_count = st.sidebar.slider(label="choose n top gene:", min_value=2,max_value=gene_dataframe.Genes.nunique())
-        st.info("Will use top {}[/{}] gene from the uploaded doc".format(gene_to_run_count, gene_dataframe.Genes.nunique()))
-        return gene_to_run_count
-    else:
-        st.warning("Consider renaming gene coulumn as 'Genes'. Can not process uploaded file")
-        return False
     
 def _checkParamFile(param_json):
     if all(key in param_json for key in ('background', 'scoring_strategy', 'question')):
@@ -31,17 +19,6 @@ example_gene_file = "app_dev/data_repo/demo/M9.2_genes.csv"
 example_param_file = "app_dev/data_repo/demo/test_param.json"
 
 
-def _checkSession():
-    """ Function to check session state for api object"""
-
-    if 'api_obj' not in st.session_state:
-        st.warning("To proceed further activate sesson with key")
-        return False
-
-    else:
-        callAPI = st.session_state['api_obj']
-        return callAPI
-
 st.set_page_config(page_title="Upload your gene set", page_icon="📈")
 
 st.markdown("""
@@ -49,47 +26,55 @@ st.markdown("""
 **Important** : For long list of genes consider using local deployment
 """)
 
+gene_upload, paramFile_upload = st.columns(2)
+
+with gene_upload:
+    uploaded_gene_file = st.file_uploader("Choose a CSV file with genes in 'Genes' column",type=['csv'])
+    load_Exmaple_gene = st.checkbox("Load Example gene list")
+
+    if uploaded_gene_file is not None:
+        # Can be used wherever a "file-like" object is accepted:
+        gene_dataframe = pd.read_csv(uploaded_gene_file)
+        if 'Genes' in gene_dataframe.columns:
+            st.info("Gene list uploaded")
+            st.write(gene_dataframe)
+        else:
+            st.warning("Consider renaming gene coulumn as 'Genes'. Can not process uploaded file")
+            gene_dataframe = pd.DataFrame()
+
+    elif load_Exmaple_gene:
+        gene_dataframe = pd.read_csv(example_gene_file)
+        st.info("Loading example gene file.")
+        st.write(gene_dataframe)
+    else:
+        st.warning("Please upload gene list")
+
+with paramFile_upload:
+
+    uploaded_param_file = st.file_uploader("Choose a JSON file with DEFINED paramters",type=['json'])
+    load_example_params = st.checkbox("Load example parameters")
+
+    if uploaded_param_file is not None:
+        # Can be used wherever a "file-like" object is accepted:
+        param_json = json.load(uploaded_param_file)
+        assert _checkParamFile(param_json)
+        st.json(param_json)
+        
+    elif load_example_params:
+        st.info("Loading example parameters file.")
+        with open(example_param_file) as f:
+            param_json = json.load(f)
+        assert _checkParamFile(param_json)
+        st.json(param_json)
+    else:
+        st.warning("Please upload parameter file")
+
+
+
 with st.form("Try_gene_set"):
     st.write("Upload your gene list and parameters to proceed further")
     st.write("Note: Gene list should be in CSV format with 'Genes' column")
-    st.write("Note: Parameters should be in JSON format with 'background', 'scoring_strategy' and 'question' keys")
-
-    gene_upload, paramFile_upload = st.columns(2)
-    with gene_upload:
-        uploaded_gene_file = st.file_uploader("Choose a CSV file with genes in 'Genes' column",type=['csv'])
-        load_Exmaple_gene = st.checkbox("Load Example gene list")
-
-        if uploaded_gene_file is not None:
-            # Can be used wherever a "file-like" object is accepted:
-            gene_dataframe = pd.read_csv(uploaded_gene_file)
-            gene_to_run_count = _checkGeneList(gene_dataframe)
-
-        elif load_Exmaple_gene:
-            gene_dataframe = pd.read_csv(example_gene_file)
-            st.info("Loading example gene file.")
-            gene_to_run_count = _checkGeneList(gene_dataframe)
-        else:
-            st.warning("Please upload gene list")
-
-    with paramFile_upload:
-
-        uploaded_param_file = st.file_uploader("Choose a JSON file with DEFINED paramters",type=['json'])
-        load_example_params = st.checkbox("Load example parameters")
-
-        if uploaded_param_file is not None:
-            # Can be used wherever a "file-like" object is accepted:
-            param_json = json.load(uploaded_param_file)
-            assert _checkParamFile(param_json)
-            st.json(param_json)
-            
-        elif load_example_params:
-            st.info("Loading example parameters file.")
-            with open(example_param_file) as f:
-                param_json = json.load(f)
-            assert _checkParamFile(param_json)
-            st.json(param_json)
-        else:
-            st.warning("Please upload parameter file")
+    st.write("Note: Parameters should be in JSON format with 'background', 'scoring_strategy' and 'question' keys")    
     
     if 'api_obj' not in st.session_state:
         st.warning("To proceed further activate sesson with key")
@@ -100,17 +85,17 @@ with st.form("Try_gene_set"):
         openAi_models_select = st.selectbox("Select Model [gpt engine]",list(openAi_models_sel.modelName.values))
         st.info("prompt will use selected model : {}".format(openAi_models_select))
     
+    gene_to_run_count = st.slider(label="choose n top gene:", min_value=2,max_value=gene_dataframe.Genes.nunique())
+    st.info("Will use top {}[/{}] gene from the uploaded doc".format(gene_to_run_count, gene_dataframe.Genes.nunique()))
+    gList = gene_dataframe.Genes.values
+    gen_to_run = gList[:gene_to_run_count]
+    
     submit_try_gene = st.form_submit_button("Run Gene Set")
 
     if submit_try_gene:
         st.info("Proceeding with gene list and parameters")
         json_response = {}
-        
-        gList = gene_dataframe.Genes.values
-        gen_to_run = gList[:gene_to_run_count]
-
         st.sidebar.header("LLM Progress")
-
         status_text = st.sidebar.empty()
         progress_bar = st.sidebar.progress(0)
         status_text = st.sidebar.empty()
