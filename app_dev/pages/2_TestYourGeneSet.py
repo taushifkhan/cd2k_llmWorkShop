@@ -79,7 +79,7 @@ else:
     st.info("prompt will use selected model : {}".format(openAi_models_select))
 
 if gene_dataframe.empty or not param_json or 'api_obj' not in st.session_state:
-    st.warning("Please upload gene list and parameters to proceed further")
+    st.warning("Please upload (1) gene list (2) parameters and (3) active session with openAI API to proceed further")
     st.stop()
 else:
     with st.form("Try_gene_set"):
